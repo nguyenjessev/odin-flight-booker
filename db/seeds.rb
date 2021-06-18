@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Airport.destroy_all
-
 Airport.create(code: 'ATL')
 Airport.create(code: 'DFW')
 Airport.create(code: 'DEN')
