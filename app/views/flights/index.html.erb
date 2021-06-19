@@ -2,3 +2,9 @@
 <p>Find me in app/views/flights/index.html.erb</p>
 
 <%= render 'search_form' %>
+
+<% if @flights %>
+  <% @flights.each do |f| %>
+    <p><%= f %></p>
+  <% end %>
+<% end %>
