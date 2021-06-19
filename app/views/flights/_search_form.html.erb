@@ -1,0 +1,15 @@
+<%= form_with method: :get do |f| %>
+  <%= f.label :origin_id, 'From' %>
+  <%= f.collection_select :origin_id, Airport.order(:code), :id, :code %>
+
+  <%= f.label :destination_id, 'To' %>
+  <%= f.collection_select :destination_id, Airport.order(:code), :id, :code %>
+
+  <%= f.label :passengers, 'Passengers' %>
+  <%= f.select :passengers, 1..4 %>
+
+  <%= f.label :departing, 'Departing' %>
+  <%= f.collection_select :departing, Flight.order(:start_date).select(:start_date).distinct, :start_date, :start_date%>
+
+  <%= f.submit 'Search for Flights', name: nil %>
+<% end %>
