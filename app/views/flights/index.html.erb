@@ -2,3 +2,5 @@
 <p>Find me in app/views/flights/index.html.erb</p>
 
 <%= render 'search_form' %>
+
+<%= render 'search_results', locals: { flights: @flights } %>

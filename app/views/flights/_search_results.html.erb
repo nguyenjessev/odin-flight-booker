@@ -1,11 +1,11 @@
 <% unless @flights.nil? %>
   <% if @flights.length > 0 %>
-    <% @flights.each do |f| %>
+    <% @flights.each do |flight| %>
       <div class="flight-card">
-        <div class="flight-route"><%= f.from_airport.code %> → <%= f.to_airport.code %></div>
-        <div class="flight-date"><%= f.start_date %></div>
-        <div class="flight-departure"><%= f.start_time.strftime('%I:%M%p') %></div>
-        <div class="flight-duration"><%= f.readable_duration %></div>
+        <div class="flight-route"><%= flight.from_airport.code %> → <%= flight.to_airport.code %></div>
+        <div class="flight-date"><%= flight.start_date %></div>
+        <div class="flight-departure"><%= flight.start_time.strftime('%I:%M%p') %></div>
+        <div class="flight-duration"><%= flight.readable_duration %></div>
       </div>
     <% end %>
   <% else %>

@@ -12,6 +12,4 @@
   <%= f.collection_select :departing, Flight.order(:start_date).select(:start_date).distinct, :start_date, :start_date%>
 
   <%= f.submit 'Search for Flights', name: nil %>
-
-  <%= render 'search_results', locals: { flights: @flights } %>
 <% end %>
