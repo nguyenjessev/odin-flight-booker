@@ -6,6 +6,8 @@ class FlightsController < ApplicationController
                             AND to_airport_id = :destination_id
                             AND start_date = :departing',
                             search_params.to_h)
+
+    @booking = Booking.new
   end
 
   private

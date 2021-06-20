@@ -1,12 +1,15 @@
 <% unless @flights.nil? %>
   <% if @flights.length > 0 %>
-    <% @flights.each do |flight| %>
-      <div class="flight-card">
-        <div class="flight-route"><%= flight.from_airport.code %> → <%= flight.to_airport.code %></div>
-        <div class="flight-date"><%= flight.start_date %></div>
-        <div class="flight-departure"><%= flight.start_time.strftime('%I:%M%p') %></div>
-        <div class="flight-duration"><%= flight.readable_duration %></div>
-      </div>
+    <%= form_with model: @booking, url: "/booking/new", method: :get do |f| %>
+      <% @flights.each do |flight| %>
+        <div class="flight-card">
+          <%= f.radio_button :flight_selection, flight.id %>
+          <div class="flight-route"><%= flight.from_airport.code %> → <%= flight.to_airport.code %></div>
+          <div class="flight-date"><%= flight.start_date %></div>
+          <div class="flight-departure"><%= flight.start_time.strftime('%I:%M%p') %></div>
+          <div class="flight-duration"><%= flight.readable_duration %></div>
+        </div>
+      <% end %>
     <% end %>
   <% else %>
     <p>No results found.</p>
