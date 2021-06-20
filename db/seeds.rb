@@ -15,7 +15,7 @@ Airport.create(code: 'LAX')
 
 Flight.destroy_all
 Airport.pluck(:id).combination(2).each do |c|
-  rand(4..10).times do
+  rand(20..50).times do
     Flight.create(from_airport_id: c[0], to_airport_id: c[1], start: rand(2.weeks).seconds.from_now, duration_in_mins: rand(100..500))
   end
 end
