@@ -3,8 +3,4 @@
 
 <%= render 'search_form' %>
 
-<% if @flights %>
-  <% @flights.each do |f| %>
-    <p><%= f %></p>
-  <% end %>
-<% end %>
+<%= render 'search_results', locals: { flights: @flights } %>

@@ -1,0 +1,7 @@
+<% if @flights.length > 0 %>
+  <% @flights.each do |f| %>
+    <P><%= f %></P>
+  <% end %>
+<% else %>
+  <p>No results found.</p>
+<% end %>
