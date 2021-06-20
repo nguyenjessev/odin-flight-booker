@@ -9,7 +9,7 @@
   <%= f.select :passengers, 1..4 %>
 
   <%= f.label :departing, 'Departing' %>
-  <%= f.collection_select :departing, Flight.order(:start_date).select(:start_date).distinct, :start_date, :start_date%>
+  <%= f.collection_select :departing, Flight.order('start::date').select('start::date').distinct, :start, :start_date %>
 
   <%= f.submit 'Search for Flights', name: nil %>
 <% end %>

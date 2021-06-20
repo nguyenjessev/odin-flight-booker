@@ -4,7 +4,7 @@ class FlightsController < ApplicationController
 
     @flights = Flight.where('from_airport_id = :origin_id
                             AND to_airport_id = :destination_id
-                            AND start_date = :departing',
+                            AND start::date = :departing',
                             search_params.to_h)
 
     @booking = Booking.new
