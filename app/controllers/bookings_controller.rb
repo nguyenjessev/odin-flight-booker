@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
+    if Flight.exists?(params[:id])
+      @flight = Flight.find(params[:id])
+    else
+      redirect_to root_path, alert: 'Flight not found.'
+    end
   end
 
   private
