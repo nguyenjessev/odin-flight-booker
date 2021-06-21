@@ -1,6 +1,12 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
 
-<%= form_with model: @booking do %>
+<%= form_with model: @booking do |f| %>
+  <%= render partial: 'flights/flight_card', locals: { flight: @flight } %>
 
+  <%= render partial: 'passengers/form', locals: { f: f } %>
+
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+
+  <%= f.submit %>
 <% end %>
